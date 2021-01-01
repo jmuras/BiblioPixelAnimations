@@ -50,9 +50,11 @@ class BounceText(Matrix):
 
     def step(self, amt=1):
         self.layout.all_off()
+        bg = self.palette(0)
+        color = self.palette(1)
         self.layout.drawText(self._text, self.xPos, self.yPos,
-                             color=self.color, bg=self.bgcolor,
-                             font=self.font_name, font_scale=self.font_scale)
+                             color=color, bg=bg, font=self.font_name,
+                             font_scale=self.font_scale)
 
         if self._strW < self.width:
             if self.xPos <= 0 + self._buffer and self._dir == -1:
