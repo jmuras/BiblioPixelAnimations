@@ -30,7 +30,7 @@ class ScrollText(Matrix):
         self.xPos -= amt
         if self.xPos + self._strW <= 0:
             self.xPos = self.width - 1
-            self.animComplete = True
+            self.completed = True
 
 
 class BounceText(Matrix):
@@ -59,12 +59,12 @@ class BounceText(Matrix):
                 self._dir = 1
             elif self.xPos + self._strW > self.width - self._buffer and self._dir == 1:
                 self._dir = -1
-                self.animComplete = True
+                self.completed = True
         else:
             if self.xPos + self._strW <= self.width - self._buffer and self._dir == -1:
                 self._dir = 1
             elif self.xPos >= 0 + self._buffer and self._dir == 1:
                 self._dir = -1
-                self.animComplete = True
+                self.completed = True
 
         self.xPos += amt * self._dir
